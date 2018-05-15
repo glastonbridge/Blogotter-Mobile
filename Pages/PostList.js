@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 
-import getPostList from "../DataModel/PostList"
+import {getPostList, initDataModel} from "../DataModel/PostList"
 
 export default class PostList extends React.Component {
   constructor(newProps) {
@@ -11,7 +11,9 @@ export default class PostList extends React.Component {
 
   componentDidMount = () => {
     //super.componentDidMount();
-    getPostList().then(posts => {
+    initDataModel()
+    .then(getPostList)
+    .then(posts => {
       this.setState({data: posts});
     });
   }

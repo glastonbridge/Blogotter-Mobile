@@ -18,7 +18,7 @@ export default class PostEdit extends React.Component {
   save = () => {
     this.postRef.current.getContentHtml()
     .then(body => {
-      this.postRef.current.getTitle()
+      this.postRef.current.getTitleText()
       .then(title=>{
         savePost(this.props.postId, title,body);
         this.props.goBack();
